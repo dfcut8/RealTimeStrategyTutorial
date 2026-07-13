@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dspjrv2iwutyv"]
+
+[ext_resource type="Script" uid="uid://cp75q10tbsbdo" path="res://Core/Main.cs" id="1_mlbys"]
+[ext_resource type="TileSet" uid="uid://csbhylqw4a1f6" path="res://Resources/TileSets/MainTileSet.tres" id="2_mgg3w"]
+
+[node name="Main" type="Node2D" unique_id=1341206797]
+script = ExtResource("1_mlbys")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=63826588]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=418765140]
+tile_set = ExtResource("2_mgg3w")
