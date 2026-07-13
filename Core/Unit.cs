@@ -15,7 +15,7 @@ public partial class Unit : Area2D
     }
 
     [Export]
-    public float Speed { get; set; } = 10.0f;
+    public float Speed { get; set; } = 30.0f;
 
     [Export]
     public int MaxHp { get; set; } = 100;
@@ -36,14 +36,26 @@ public partial class Unit : Area2D
 
     private float lastAttackTime;
     private Unit? target;
-    private NavigationAgent2D? navigationAgent2D;
+    private NavigationAgent2D navigationAgent2D = new();
 
     public override void _Ready()
     {
         navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
+        SetMoveToTarget(Vector2.Zero);
     }
 
-    public override void _Process(double delta) { }
+    public override void _Process(double delta)
+    {
+        Move(delta);
+    }
+
+    private void Move(double delta)
+    {
+        var nextPos = navigationAgent2D.GetNextPathPosition();
+        var moveDir = GlobalPosition.DirectionTo(nextPos);
+        var movement = moveDir * Speed * (float)delta;
+        Translate(movement);
+    }
 
     private void TargetCheck() { }
 
@@ -51,7 +63,11 @@ public partial class Unit : Area2D
 
     private void Die() { }
 
-    public void SetMoveToTarget(Vector2 pos) { }
+    public void SetMoveToTarget(Vector2 pos)
+    {
+        navigationAgent2D?.TargetPosition = pos;
+        target = null;
+    }
 
     public void SetAttackTarget(Unit target) { }
 

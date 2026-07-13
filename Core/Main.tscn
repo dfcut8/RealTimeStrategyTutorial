@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cp75q10tbsbdo" path="res://Core/Main.cs" id="1_mlbys"]
 [ext_resource type="TileSet" uid="uid://csbhylqw4a1f6" path="res://Resources/TileSets/MainTileSet.tres" id="2_mgg3w"]
+[ext_resource type="PackedScene" uid="uid://d02fhpmqeh151" path="res://Core/Unit.tscn" id="3_m1i1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87wjg"]
-vertices = PackedVector2Array(73, 58, -72, -8, 73, -9, 120, -9, 120, 58, 120, 118, 293.96094, 152.97656, -293.96094, 152.00781, 73, 118, -74, 118, -121, 118, 120, -69, 293.03125, -130.97656, -293.03125, -130.00781, 73, -69, -121, 58, -72, -68, -119, -68, -119, -8, -74, 58)
+vertices = PackedVector2Array(73, 58, -72, -3, 73, -4, 120, -4, 120, 58, 120, 118, 293.96094, 152.97656, -293.96094, 152.00781, 73, 118, -74, 118, -121, 118, 120, -69, 293.03125, -130.97656, -293.03125, -130.00781, 73, -69, -121, 58, -72, -68, -119, -68, -119, -3, -74, 58)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 9, 7), PackedInt32Array(3, 11, 12, 6), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 7, 13, 15), PackedInt32Array(2, 1, 16, 14), PackedInt32Array(13, 14, 16, 17), PackedInt32Array(15, 13, 17, 18), PackedInt32Array(19, 15, 18, 1), PackedInt32Array(0, 8, 9, 19, 1), PackedInt32Array(4, 3, 6), PackedInt32Array(4, 6, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-303, -140, 303, -141, 304, 163, -304, 162)])
 
@@ -22,13 +23,13 @@ tile_set = ExtResource("2_mgg3w")
 navigation_polygon = SubResource("NavigationPolygon_87wjg")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=391579001]
-vertices = PackedVector2Array(-119, -68, -72, -68, -72, -8, -119, -8)
+vertices = PackedVector2Array(-119, -68, -72, -68, -72, -3, -119, -3)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 
 [node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=1233265152]
 position = Vector2(192, -1)
-vertices = PackedVector2Array(-119, -68, -72, -68, -72, -8, -119, -8)
+vertices = PackedVector2Array(-119, -68, -72, -68, -72, -3, -119, -3)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 
@@ -43,3 +44,6 @@ position = Vector2(-2, 126)
 vertices = PackedVector2Array(-119, -68, -72, -68, -72, -8, -119, -8)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
+
+[node name="Unit" parent="." unique_id=737188031 instance=ExtResource("3_m1i1e")]
+position = Vector2(-132, -74)
