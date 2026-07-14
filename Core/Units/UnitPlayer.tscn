@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d02fhpmqeh151" path="res://Core/Units/Unit.tscn" id="1_1736o"]
 [ext_resource type="Script" uid="uid://b2mo0fwyllq6u" path="res://Core/Units/PlayerUnitComponent.cs" id="2_acd5d"]
+[ext_resource type="Texture2D" uid="uid://cnbu1icf22w4g" path="res://Assets/Textures/Sprites/tile_0085.png" id="3_p38ye"]
 
 [sub_resource type="Gradient" id="Gradient_1736o"]
 offsets = PackedFloat32Array(1)
@@ -11,6 +12,7 @@ colors = PackedColorArray(0, 0.6780146, 7.70092e-07, 1)
 gradient = SubResource("Gradient_1736o")
 
 [node name="UnitPlayer" unique_id=737188031 instance=ExtResource("1_1736o")]
+Team = 0
 
 [node name="PlayerUnitComponent" type="Node" parent="." index="0" unique_id=1505907320 node_paths=PackedStringArray("selectionSprite")]
 unique_name_in_owner = true
@@ -22,3 +24,6 @@ unique_name_in_owner = true
 position = Vector2(-1.1920929e-07, 4.25)
 scale = Vector2(0.08593749, 9.5)
 texture = SubResource("GradientTexture1D_87wjg")
+
+[node name="Sprite2D" parent="." index="2" unique_id=2002026869]
+texture = ExtResource("3_p38ye")

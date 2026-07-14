@@ -41,7 +41,6 @@ public partial class Unit : Area2D
     public override void _Ready()
     {
         navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
-        SetMoveToTarget(Vector2.Zero);
     }
 
     public override void _Process(double delta)

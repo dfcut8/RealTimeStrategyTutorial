@@ -57,7 +57,26 @@ public partial class UnitController : Node2D
         selectedUnit = null;
     }
 
-    private void TryCommandUnit() { }
+    private void TryCommandUnit()
+    {
+        if (selectedUnit is null)
+        {
+            return;
+        }
+
+        var target = GetSelectedUnit();
+        if (target is not null)
+        {
+            if (target.Team != Unit.TeamEnum.Player)
+            {
+                selectedUnit.SetAttackTarget(target);
+            }
+        }
+        else
+        {
+            selectedUnit.SetMoveToTarget(GetGlobalMousePosition());
+        }
+    }
 
     private Unit? GetSelectedUnit()
     {

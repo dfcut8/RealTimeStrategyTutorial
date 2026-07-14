@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cp75q10tbsbdo" path="res://Core/Main.cs" id="1_mlbys"]
 [ext_resource type="PackedScene" uid="uid://cwcww5sw65eb6" path="res://Core/Units/UnitController.tscn" id="2_jhd3m"]
 [ext_resource type="TileSet" uid="uid://csbhylqw4a1f6" path="res://Resources/TileSets/MainTileSet.tres" id="2_mgg3w"]
+[ext_resource type="PackedScene" uid="uid://d02fhpmqeh151" path="res://Core/Units/Unit.tscn" id="3_m1i1e"]
 [ext_resource type="PackedScene" uid="uid://dg04mjv12q6ng" path="res://Core/Units/UnitPlayer.tscn" id="4_jhd3m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87wjg"]
@@ -52,3 +53,12 @@ carve_navigation_mesh = true
 
 [node name="UnitPlayer" parent="." unique_id=737188031 instance=ExtResource("4_jhd3m")]
 position = Vector2(-43, 50)
+
+[node name="UnitPlayer2" parent="." unique_id=127475355 instance=ExtResource("4_jhd3m")]
+position = Vector2(-52, 4)
+
+[node name="UnitPlayer3" parent="." unique_id=1327196946 instance=ExtResource("4_jhd3m")]
+position = Vector2(-35, 83)
+
+[node name="Unit" parent="." unique_id=162376073 instance=ExtResource("3_m1i1e")]
+position = Vector2(26, -40)

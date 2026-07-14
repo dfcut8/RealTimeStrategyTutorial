@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d02fhpmqeh151"]
 
 [ext_resource type="Script" uid="uid://bu3kmy57j8ydg" path="res://Core/Units/Unit.cs" id="1_fg7oq"]
-[ext_resource type="Texture2D" uid="uid://cnbu1icf22w4g" path="res://Assets/Textures/Sprites/tile_0085.png" id="1_jol6k"]
+[ext_resource type="Texture2D" uid="uid://priw1iamy84s" path="res://Assets/Textures/Sprites/tile_0121.png" id="2_hns0v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
 radius = 11.0
@@ -19,9 +19,10 @@ border_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
 
 [node name="Unit" type="Area2D" unique_id=737188031]
 script = ExtResource("1_fg7oq")
+Team = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002026869]
-texture = ExtResource("1_jol6k")
+texture = ExtResource("2_hns0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212407229]
 shape = SubResource("CircleShape2D_jol6k")
