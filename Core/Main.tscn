@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://dspjrv2iwutyv"]
 
 [ext_resource type="Script" uid="uid://cp75q10tbsbdo" path="res://Core/Main.cs" id="1_mlbys"]
+[ext_resource type="PackedScene" uid="uid://cwcww5sw65eb6" path="res://Core/Units/UnitController.tscn" id="2_jhd3m"]
 [ext_resource type="TileSet" uid="uid://csbhylqw4a1f6" path="res://Resources/TileSets/MainTileSet.tres" id="2_mgg3w"]
+[ext_resource type="PackedScene" uid="uid://dg04mjv12q6ng" path="res://Core/Units/UnitPlayer.tscn" id="4_jhd3m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87wjg"]
 vertices = PackedVector2Array(73, 58, -72, -3, 73, -4, 120, -4, 120, 58, 120, 118, 293.96094, 152.97656, -293.96094, 152.00781, 73, 118, -74, 118, -121, 118, 120, -69, 293.03125, -130.97656, -293.03125, -130.00781, 73, -69, -121, 58, -72, -68, -119, -68, -119, -3, -74, 58)
@@ -10,6 +12,10 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-303, -140, 303, -141, 
 
 [node name="Main" type="Node2D" unique_id=1341206797]
 script = ExtResource("1_mlbys")
+
+[node name="Controllers" type="Node" parent="." unique_id=415576359]
+
+[node name="UnitController" parent="Controllers" unique_id=1100159285 instance=ExtResource("2_jhd3m")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=63826588]
 
@@ -43,3 +49,6 @@ position = Vector2(-2, 126)
 vertices = PackedVector2Array(-119, -68, -72, -68, -72, -8, -119, -8)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
+
+[node name="UnitPlayer" parent="." unique_id=737188031 instance=ExtResource("4_jhd3m")]
+position = Vector2(-43, 50)

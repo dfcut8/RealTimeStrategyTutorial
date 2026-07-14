@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnbu1icf22w4g" path="res://Assets/Textures/Sprites/tile_0085.png" id="1_jol6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
-radius = 7.5166483
+radius = 11.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg7oq"]
 bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)

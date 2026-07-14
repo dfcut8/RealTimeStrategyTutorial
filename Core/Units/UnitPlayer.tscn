@@ -13,6 +13,7 @@ gradient = SubResource("Gradient_1736o")
 [node name="UnitPlayer" unique_id=737188031 instance=ExtResource("1_1736o")]
 
 [node name="PlayerUnitComponent" type="Node" parent="." index="0" unique_id=1505907320 node_paths=PackedStringArray("selectionSprite")]
+unique_name_in_owner = true
 script = ExtResource("2_acd5d")
 selectionSprite = NodePath("../SelectionSprite")
 

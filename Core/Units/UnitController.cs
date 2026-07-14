@@ -33,11 +33,29 @@ public partial class UnitController : Node2D
     private void TrySelectUnit()
     {
         var u = GetSelectedUnit();
+        if (u is null || u.Team != Unit.TeamEnum.Player)
+        {
+            UnSelectUnit();
+        }
+        else
+        {
+            SelectUnit(u);
+        }
     }
 
-    private void SelectUnit(Unit u) { }
+    private void SelectUnit(Unit u)
+    {
+        UnSelectUnit();
+        selectedUnit = u;
+        // at this moment of time we know we have Player controller unit
+        selectedUnit.GetNode<PlayerUnitComponent>("PlayerUnitComponent").ToggleSelection(true);
+    }
 
-    private void UnSelectUnit(Unit u) { }
+    private void UnSelectUnit()
+    {
+        selectedUnit?.GetNode<PlayerUnitComponent>("PlayerUnitComponent").ToggleSelection(false);
+        selectedUnit = null;
+    }
 
     private void TryCommandUnit() { }
 
