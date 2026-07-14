@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d02fhpmqeh151"]
 
-[ext_resource type="Script" uid="uid://bu3kmy57j8ydg" path="res://Core/Unit.cs" id="1_fg7oq"]
+[ext_resource type="Script" uid="uid://bu3kmy57j8ydg" path="res://Core/Units/Unit.cs" id="1_fg7oq"]
 [ext_resource type="Texture2D" uid="uid://cnbu1icf22w4g" path="res://Assets/Textures/Sprites/tile_0085.png" id="1_jol6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
@@ -27,6 +27,8 @@ texture = ExtResource("1_jol6k")
 shape = SubResource("CircleShape2D_jol6k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1770162324]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=2019083683]
 anchors_preset = 8

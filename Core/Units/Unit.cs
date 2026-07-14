@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace RealTimeStrategy.Core;
+namespace RealTimeStrategy.Core.Units;
 
 public partial class Unit : Area2D
 {
@@ -46,7 +46,10 @@ public partial class Unit : Area2D
 
     public override void _Process(double delta)
     {
-        Move(delta);
+        if (!navigationAgent2D.IsTargetReached())
+        {
+            Move(delta);
+        }
     }
 
     private void Move(double delta)
