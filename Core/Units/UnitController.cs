@@ -21,14 +21,26 @@ public partial class UnitController : Node2D
 
     private void TryCommandUnit() { }
 
-    public Unit GetSelectedUnit()
+    public Unit? GetSelectedUnit()
     {
-        var world = GetWorld2D().DirectSpaceState;
-        if (world is not null) { }
-        else
+        var spaceState = GetWorld2D().DirectSpaceState;
+        if (spaceState is null)
         {
             GetTree().CrashWithError("[UnitController]: Failed to get DirectSpaceState.");
+            return null;
         }
-        return new();
+
+        var query = new PhysicsPointQueryParameters2D
+        {
+            Position = GetGlobalMousePosition(),
+            CollideWithAreas = true,
+            CollideWithBodies = false,
+        };
+
+        var intersections = spaceState.IntersectPoint(query, 1);
+
+        return intersections.Count > 0
+            ? intersections[0]["collider"].AsGodotObject() as Unit
+            : null;
     }
 }
