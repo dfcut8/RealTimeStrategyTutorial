@@ -49,6 +49,8 @@ public partial class Unit : Area2D
         {
             Move(delta);
         }
+
+        TargetCheck();
     }
 
     private void Move(double delta)
@@ -59,7 +61,24 @@ public partial class Unit : Area2D
         Translate(movement);
     }
 
-    private void TargetCheck() { }
+    private void TargetCheck()
+    {
+        if (target is null)
+        {
+            return;
+        }
+
+        var dist = GlobalPosition.DistanceTo(target.Position);
+        if (dist <= AttackRange)
+        {
+            navigationAgent2D?.TargetPosition = GlobalPosition;
+            TryAttackTarget();
+        }
+        else
+        {
+            navigationAgent2D.TargetPosition = target.Position;
+        }
+    }
 
     private void TryAttackTarget() { }
 
@@ -71,7 +90,15 @@ public partial class Unit : Area2D
         target = null;
     }
 
-    public void SetAttackTarget(Unit target) { }
+    public void SetAttackTarget(Unit u)
+    {
+        if (u.Team == Team)
+        {
+            return;
+        }
+
+        target = u;
+    }
 
     public void TakeDamage(int ammount) { }
 }
