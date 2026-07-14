@@ -30,7 +30,10 @@ public partial class UnitController : Node2D
         }
     }
 
-    private void TrySelectUnit() { }
+    private void TrySelectUnit()
+    {
+        var u = GetSelectedUnit();
+    }
 
     private void SelectUnit(Unit u) { }
 
@@ -38,7 +41,7 @@ public partial class UnitController : Node2D
 
     private void TryCommandUnit() { }
 
-    public Unit? GetSelectedUnit()
+    private Unit? GetSelectedUnit()
     {
         var spaceState = GetWorld2D().DirectSpaceState;
         if (spaceState is null)

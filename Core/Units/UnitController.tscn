@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cwcww5sw65eb6"]
 
+[ext_resource type="Script" uid="uid://div7j1lk6tsnr" path="res://Core/Units/UnitController.cs" id="1_6vd66"]
+
 [node name="UnitController" type="Node2D" unique_id=1100159285]
+script = ExtResource("1_6vd66")
