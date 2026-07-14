@@ -11,7 +11,24 @@ public partial class UnitController : Node2D
 
     public override void _Process(double delta) { }
 
-    public override void _Input(InputEvent @event) { }
+    public override void _UnhandledInput(InputEvent e)
+    {
+        if (e is not InputEventMouseButton { Pressed: true } mouseEvent)
+        {
+            return;
+        }
+
+        switch (mouseEvent.ButtonIndex)
+        {
+            case MouseButton.Left:
+                TrySelectUnit();
+                break;
+
+            case MouseButton.Right:
+                TryCommandUnit();
+                break;
+        }
+    }
 
     private void TrySelectUnit() { }
 
