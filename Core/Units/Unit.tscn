@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
 radius = 11.0
 
-[node name="Unit" type="Area2D" unique_id=737188031]
+[node name="Unit" type="Area2D" unique_id=737188031 groups=["Units"]]
 script = ExtResource("1_fg7oq")
 Team = 1
 

@@ -11,7 +11,7 @@ colors = PackedColorArray(0, 0.6780146, 7.70092e-07, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_87wjg"]
 gradient = SubResource("Gradient_1736o")
 
-[node name="UnitPlayer" unique_id=737188031 instance=ExtResource("1_1736o")]
+[node name="UnitPlayer" unique_id=737188031 groups=["UnitsPlayer"] instance=ExtResource("1_1736o")]
 Team = 0
 
 [node name="PlayerUnitComponent" type="Node" parent="." index="0" unique_id=1505907320 node_paths=PackedStringArray("selectionSprite")]
