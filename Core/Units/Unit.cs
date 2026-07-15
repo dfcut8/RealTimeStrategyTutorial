@@ -67,7 +67,18 @@ public partial class Unit : Area2D
         var nextPos = navigationAgent2D.GetNextPathPosition();
         var moveDir = GlobalPosition.DirectionTo(nextPos);
         var movement = moveDir * Speed * (float)delta;
+        RotateSprite();
         Translate(movement);
+    }
+
+    private void RotateSprite()
+    {
+        var time = Time.GetUnixTimeFromSystem();
+        var r = Mathf.Sin(time * 10) * 5;
+        if (IsInstanceValid(sprite))
+        {
+            sprite.Rotation = Mathf.DegToRad((float)r);
+        }
     }
 
     private void TargetCheck()
