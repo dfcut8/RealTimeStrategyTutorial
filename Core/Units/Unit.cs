@@ -38,6 +38,7 @@ public partial class Unit : Area2D
     private Unit? target;
     private NavigationAgent2D navigationAgent2D = new();
     private Sprite2D sprite = new();
+    private Vector2 lastPosition;
 
     public override void _Ready()
     {
@@ -67,17 +68,27 @@ public partial class Unit : Area2D
         var nextPos = navigationAgent2D.GetNextPathPosition();
         var moveDir = GlobalPosition.DirectionTo(nextPos);
         var movement = moveDir * Speed * (float)delta;
-        RotateSprite();
+        ProcessVisuals();
         Translate(movement);
+        lastPosition = GlobalPosition;
     }
 
-    private void RotateSprite()
+    private void ProcessVisuals()
     {
         var time = Time.GetUnixTimeFromSystem();
         var r = Mathf.Sin(time * 10) * 5;
         if (IsInstanceValid(sprite))
         {
             sprite.Rotation = Mathf.DegToRad((float)r);
+            var dir = GlobalPosition.X - lastPosition.X;
+            if (dir < 0)
+            {
+                sprite.FlipH = true;
+            }
+            if (dir > 0)
+            {
+                sprite.FlipH = false;
+            }
         }
     }
 
