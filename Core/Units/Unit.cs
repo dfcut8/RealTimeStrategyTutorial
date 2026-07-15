@@ -70,7 +70,6 @@ public partial class Unit : Area2D
         var movement = moveDir * Speed * (float)delta;
         ProcessVisuals();
         Translate(movement);
-        lastPosition = GlobalPosition;
     }
 
     private void ProcessVisuals()
@@ -81,6 +80,7 @@ public partial class Unit : Area2D
         {
             sprite.Rotation = Mathf.DegToRad((float)r);
             var dir = GlobalPosition.X - lastPosition.X;
+            GD.Print($"dir:{dir}, GlobalPosition: {GlobalPosition}, lastPosition: {lastPosition}");
             if (dir < 0)
             {
                 sprite.FlipH = true;
@@ -89,6 +89,7 @@ public partial class Unit : Area2D
             {
                 sprite.FlipH = false;
             }
+            lastPosition = GlobalPosition;
         }
     }
 
