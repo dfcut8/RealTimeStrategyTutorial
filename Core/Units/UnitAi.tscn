@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://co0ce6xvx7bhv" path="res://Core/Units/AiPlayerComponent.cs" id="2_8qulc"]
 
 [node name="UnitAi" unique_id=737188031 groups=["UnitsAi"] instance=ExtResource("1_jq72s")]
+Speed = 15.0
 AttackRate = 0.7
 
 [node name="Components" type="Node" parent="." index="4" unique_id=1712071899]

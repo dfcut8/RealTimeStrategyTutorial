@@ -6,7 +6,7 @@ namespace RealTimeStrategyTutorial.Core.Units;
 public partial class AiPlayerComponent : Node
 {
     [Export]
-    public float DetectRange { get; set; }
+    public float DetectRange { get; set; } = 10f;
 
     [Export]
     public float DetectRate { get; set; }
@@ -17,13 +17,13 @@ public partial class AiPlayerComponent : Node
 
     public override void _Ready()
     {
-        owner = GetParent<Unit>();
+        owner = GetOwner<Unit>();
     }
 
     public override void _Process(double delta)
     {
         var time = Time.GetUnixTimeFromSystem();
-        if (time - lastDetectTime < DetectRange)
+        if (time - lastDetectTime > DetectRate)
         {
             lastDetectTime = time;
             UpdateEnemyList();
@@ -31,7 +31,24 @@ public partial class AiPlayerComponent : Node
         }
     }
 
-    private void Detect() { }
+    private void Detect()
+    {
+        Unit? closestEnemy = null;
+        float closestDist = float.MaxValue;
+        foreach (var enemy in enemyList)
+        {
+            var dist = owner.GlobalPosition.DistanceTo(enemy.Position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closestEnemy = enemy;
+            }
+        }
+        if (closestEnemy is not null)
+        {
+            owner.SetAttackTarget(closestEnemy);
+        }
+    }
 
     private void UpdateEnemyList()
     {
