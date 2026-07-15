@@ -2,20 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bu3kmy57j8ydg" path="res://Core/Units/Unit.cs" id="1_fg7oq"]
 [ext_resource type="Texture2D" uid="uid://priw1iamy84s" path="res://Assets/Textures/Sprites/tile_0121.png" id="2_hns0v"]
+[ext_resource type="PackedScene" uid="uid://b0v67ocmdiqmv" path="res://Ui/HealthBar.tscn" id="3_vvygb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
 radius = 11.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg7oq"]
-bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lr1tg"]
-bg_color = Color(0.87058824, 0.1254902, 0.23529412, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
 
 [node name="Unit" type="Area2D" unique_id=737188031]
 script = ExtResource("1_fg7oq")
@@ -31,20 +21,4 @@ shape = SubResource("CircleShape2D_jol6k")
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=2019083683]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.999999
-offset_top = -11.999999
-offset_right = 190.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.1, 0.1)
-theme_override_styles/background = SubResource("StyleBoxFlat_fg7oq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lr1tg")
-value = 50.0
-show_percentage = false
+[node name="HealthBar" parent="." unique_id=1474856562 instance=ExtResource("3_vvygb")]

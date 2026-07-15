@@ -56,3 +56,4 @@ position = Vector2(-43, 50)
 
 [node name="Unit" parent="." unique_id=162376073 instance=ExtResource("3_m1i1e")]
 position = Vector2(26, -40)
+MaxHp = 20

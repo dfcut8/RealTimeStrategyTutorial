@@ -34,18 +34,19 @@ public partial class Unit : Area2D
 
     public int CurrentHp { get; set; }
 
-    private float lastAttackTime;
+    private double lastAttackTime;
     private Unit? target;
     private NavigationAgent2D navigationAgent2D = new();
 
     public override void _Ready()
     {
         navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
+        CurrentHp = MaxHp;
     }
 
     public override void _Process(double delta)
     {
-        if (!navigationAgent2D.IsTargetReached())
+        if (!navigationAgent2D.IsNavigationFinished())
         {
             Move(delta);
         }
@@ -63,7 +64,7 @@ public partial class Unit : Area2D
 
     private void TargetCheck()
     {
-        if (target is null)
+        if (target is null || !IsInstanceValid(target))
         {
             return;
         }
@@ -72,7 +73,7 @@ public partial class Unit : Area2D
         if (dist <= AttackRange)
         {
             navigationAgent2D?.TargetPosition = GlobalPosition;
-            TryAttackTarget();
+            TryAttackTarget(target);
         }
         else
         {
@@ -80,9 +81,34 @@ public partial class Unit : Area2D
         }
     }
 
-    private void TryAttackTarget() { }
+    private void TryAttackTarget(Unit u)
+    {
+        var time = Time.GetUnixTimeFromSystem();
+        if (time - lastAttackTime < AttackRate)
+        {
+            return;
+        }
 
-    private void Die() { }
+        lastAttackTime = time;
+        u.TakeDamage(AttackDamage);
+    }
+
+    private void TakeDamage(int ammount)
+    {
+        CurrentHp -= ammount;
+        Damaged?.Invoke(CurrentHp);
+        if (CurrentHp <= 0)
+        {
+            Die();
+        }
+        GD.Print($"[Unit] Damage dealed. CurrentHp={CurrentHp}");
+    }
+
+    private void Die()
+    {
+        Died?.Invoke(this);
+        QueueFree();
+    }
 
     public void SetMoveToTarget(Vector2 pos)
     {
@@ -99,6 +125,4 @@ public partial class Unit : Area2D
 
         target = u;
     }
-
-    public void TakeDamage(int ammount) { }
 }
