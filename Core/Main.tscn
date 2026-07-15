@@ -54,4 +54,7 @@ carve_navigation_mesh = true
 [node name="UnitPlayer" parent="." unique_id=737188031 instance=ExtResource("4_jhd3m")]
 position = Vector2(-43, 50)
 
+[node name="UnitPlayer2" parent="." unique_id=27362872 instance=ExtResource("4_jhd3m")]
+position = Vector2(-8, 79)
+
 [node name="UnitAi" parent="." unique_id=2108197902 instance=ExtResource("5_mmo8m")]

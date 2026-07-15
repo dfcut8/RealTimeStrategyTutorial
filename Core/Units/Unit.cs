@@ -37,11 +37,19 @@ public partial class Unit : Area2D
     private double lastAttackTime;
     private Unit? target;
     private NavigationAgent2D navigationAgent2D = new();
+    private Sprite2D sprite = new();
 
     public override void _Ready()
     {
         navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
+        sprite = GetNode<Sprite2D>("Sprite2D");
         CurrentHp = MaxHp;
+        Damaged += DamageFlash;
+
+        //    (h) =>
+        //{
+        //    await DamageFlash(h);
+        //};
     }
 
     public override void _Process(double delta)
@@ -124,5 +132,18 @@ public partial class Unit : Area2D
         }
 
         target = u;
+    }
+
+    private async void DamageFlash(int health)
+    {
+        sprite.Modulate = Colors.Red;
+        await ToSignal(GetTree().CreateTimer(0.05f), SceneTreeTimer.SignalName.Timeout);
+        //await Task.Delay(TimeSpan.FromMilliseconds(1000));
+
+        // sprite may already be dead after delay
+        if (IsInstanceValid(sprite))
+        {
+            sprite.Modulate = Colors.White;
+        }
     }
 }

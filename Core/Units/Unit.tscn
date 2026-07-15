@@ -13,8 +13,10 @@ Team = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002026869]
 texture = ExtResource("2_hns0v")
+offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212407229]
+position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_jol6k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1770162324]
