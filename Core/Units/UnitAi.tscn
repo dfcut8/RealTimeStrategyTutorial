@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://buorrrt02u1qw"]
+
+[ext_resource type="PackedScene" uid="uid://d02fhpmqeh151" path="res://Core/Units/Unit.tscn" id="1_jq72s"]
+
+[node name="UnitAi" unique_id=737188031 instance=ExtResource("1_jq72s")]
+AttackRate = 0.7
+
+[node name="Components" type="Node" parent="." index="4" unique_id=1712071899]
+
+[node name="AiPlayerComponent" type="Node" parent="Components" index="0" unique_id=2088812067]

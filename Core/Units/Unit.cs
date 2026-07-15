@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace RealTimeStrategy.Core.Units;
+namespace RealTimeStrategyTutorial.Core.Units;
 
 public partial class Unit : Area2D
 {

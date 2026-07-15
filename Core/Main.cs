@@ -1,6 +1,6 @@
 using Godot;
 
-namespace RealTimeStrategy.Core;
+namespace RealTimeStrategyTutorial.Core;
 
 public partial class Main : Node2D
 {

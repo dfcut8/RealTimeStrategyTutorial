@@ -1,5 +1,7 @@
 using Godot;
 
+namespace RealTimeStrategyTutorial.Core.Units;
+
 public partial class PlayerUnitComponent : Node
 {
     [Export]

@@ -1,7 +1,6 @@
 using Godot;
-using RealTimeStrategyTutorial.Core;
 
-namespace RealTimeStrategy.Core.Units;
+namespace RealTimeStrategyTutorial.Core.Units;
 
 public partial class UnitController : Node2D
 {

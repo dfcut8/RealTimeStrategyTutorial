@@ -1,5 +1,5 @@
 using Godot;
-using RealTimeStrategy.Core.Units;
+using RealTimeStrategyTutorial.Core.Units;
 
 namespace RealTimeStrategyTutorial.Core.Ui;
 
