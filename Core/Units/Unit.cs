@@ -30,6 +30,9 @@ public partial class Unit : Area2D
     public int AttackDamage { get; set; } = 5;
 
     [Export]
+    public AudioStream? TakeDamageSound { get; set; }
+
+    [Export]
     public TeamEnum Team { get; set; }
 
     public int CurrentHp { get; set; }
@@ -38,12 +41,18 @@ public partial class Unit : Area2D
     private Unit? target;
     private NavigationAgent2D navigationAgent2D = new();
     private Sprite2D sprite = new();
+    private AudioStreamPlayer audioStreamPlayer = new();
     private Vector2 lastPosition;
 
     public override void _Ready()
     {
         navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
         sprite = GetNode<Sprite2D>("Sprite2D");
+        audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+        if (TakeDamageSound is not null)
+        {
+            audioStreamPlayer.Stream = TakeDamageSound;
+        }
         CurrentHp = MaxHp;
         Damaged += DamageFlash;
     }
@@ -121,6 +130,7 @@ public partial class Unit : Area2D
     private void TakeDamage(int ammount)
     {
         CurrentHp -= ammount;
+        PlayDamageSound();
         Damaged?.Invoke(CurrentHp);
         if (CurrentHp <= 0)
         {
@@ -162,5 +172,10 @@ public partial class Unit : Area2D
         {
             sprite.Modulate = Colors.White;
         }
+    }
+
+    private void PlayDamageSound()
+    {
+        audioStreamPlayer.Play();
     }
 }

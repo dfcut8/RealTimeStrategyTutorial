@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bu3kmy57j8ydg" path="res://Core/Units/Unit.cs" id="1_fg7oq"]
 [ext_resource type="Texture2D" uid="uid://priw1iamy84s" path="res://Assets/Textures/Sprites/tile_0121.png" id="2_hns0v"]
 [ext_resource type="PackedScene" uid="uid://b0v67ocmdiqmv" path="res://Ui/HealthBar.tscn" id="3_vvygb"]
+[ext_resource type="AudioStream" uid="uid://cj0gopb36k0ry" path="res://Assets/SFX/take_damage.wav" id="4_jaiyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jol6k"]
 radius = 11.0
@@ -24,3 +25,6 @@ path_desired_distance = 5.0
 target_desired_distance = 5.0
 
 [node name="HealthBar" parent="." unique_id=1474856562 instance=ExtResource("3_vvygb")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=214997191]
+stream = ExtResource("4_jaiyh")

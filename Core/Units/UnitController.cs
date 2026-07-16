@@ -52,13 +52,16 @@ public partial class UnitController : Node2D
 
     private void UnSelectUnit()
     {
-        selectedUnit?.GetNode<PlayerUnitComponent>("PlayerUnitComponent").ToggleSelection(false);
+        if (IsInstanceValid(selectedUnit))
+        {
+            selectedUnit.GetNode<PlayerUnitComponent>("PlayerUnitComponent").ToggleSelection(false);
+        }
         selectedUnit = null;
     }
 
     private void TryCommandUnit()
     {
-        if (selectedUnit is null)
+        if (!IsInstanceValid(selectedUnit))
         {
             return;
         }
