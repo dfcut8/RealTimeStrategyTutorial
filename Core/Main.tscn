@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cp75q10tbsbdo" path="res://Core/Main.cs" id="1_mlbys"]
 [ext_resource type="PackedScene" uid="uid://cwcww5sw65eb6" path="res://Core/Units/UnitController.tscn" id="2_jhd3m"]
 [ext_resource type="TileSet" uid="uid://csbhylqw4a1f6" path="res://Resources/TileSets/MainTileSet.tres" id="2_mgg3w"]
+[ext_resource type="PackedScene" uid="uid://cda7hbrgyd8yv" path="res://Core/Camera2d.tscn" id="3_fxul2"]
 [ext_resource type="PackedScene" uid="uid://dg04mjv12q6ng" path="res://Core/Units/UnitPlayer.tscn" id="4_jhd3m"]
 [ext_resource type="PackedScene" uid="uid://buorrrt02u1qw" path="res://Core/Units/UnitAi.tscn" id="5_mmo8m"]
 
@@ -18,7 +19,7 @@ script = ExtResource("1_mlbys")
 
 [node name="UnitController" parent="Controllers" unique_id=1100159285 instance=ExtResource("2_jhd3m")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=63826588]
+[node name="Camera2D" parent="." unique_id=118322586 instance=ExtResource("3_fxul2")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=418765140]
 position = Vector2(0, 50)

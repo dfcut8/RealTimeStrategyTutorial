@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cda7hbrgyd8yv"]
+
+[ext_resource type="Script" uid="uid://bri5xbmirgpwh" path="res://Core/Camera2d.cs" id="1_bv33y"]
+
+[node name="Camera2D" type="Camera2D" unique_id=118322586]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("1_bv33y")
