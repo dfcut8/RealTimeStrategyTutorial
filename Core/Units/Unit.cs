@@ -46,11 +46,6 @@ public partial class Unit : Area2D
         sprite = GetNode<Sprite2D>("Sprite2D");
         CurrentHp = MaxHp;
         Damaged += DamageFlash;
-
-        //    (h) =>
-        //{
-        //    await DamageFlash(h);
-        //};
     }
 
     public override void _Process(double delta)
@@ -80,7 +75,6 @@ public partial class Unit : Area2D
         {
             sprite.Rotation = Mathf.DegToRad((float)r);
             var dir = GlobalPosition.X - lastPosition.X;
-            GD.Print($"dir:{dir}, GlobalPosition: {GlobalPosition}, lastPosition: {lastPosition}");
             if (dir < 0)
             {
                 sprite.FlipH = true;
