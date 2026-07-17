@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0voctv5y7nii"]
 
 [ext_resource type="Script" uid="uid://br4dlojqk5oug" path="res://Ui/EndScreen.cs" id="1_aabl8"]
+[ext_resource type="PackedScene" uid="uid://5u0tjfo2konc" path="res://Ui/MenuScreen.tscn" id="2_1bxxs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aabl8"]
 bg_color = Color(0.4340607, 0.5244159, 0.42183322, 1)
@@ -13,6 +14,7 @@ shadow_offset = Vector2(2, 1)
 
 [node name="EndScreen" type="CanvasLayer" unique_id=379009865]
 script = ExtResource("1_aabl8")
+MenuScreen = ExtResource("2_1bxxs")
 
 [node name="Panel" type="Panel" parent="." unique_id=494510093]
 anchors_preset = 15
@@ -22,7 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aabl8")
 
-[node name="Button" type="Button" parent="Panel" unique_id=1683782948]
+[node name="MainMenuBtn" type="Button" parent="Panel" unique_id=1683782948]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
