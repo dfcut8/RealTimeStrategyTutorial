@@ -2,14 +2,14 @@ using Godot;
 
 public partial class MenuScreen : Control
 {
-    [Export]
-    public required PackedScene FirstLevel { get; set; }
-
     private Button? playAgainBtn;
     private Button? quitBtn;
 
+    //private GlobalSceneManager? sceneManager;
+
     public override void _Ready()
     {
+        //sceneManager = GetNode<GlobalSceneManager>("/root/GlobalSceneManager");
         quitBtn = GetNode<Button>("%QuitBtn");
         quitBtn.Pressed += OnQuitBtnPressed;
         playAgainBtn = GetNode<Button>("%PlayAgainBtn");
@@ -18,7 +18,7 @@ public partial class MenuScreen : Control
 
     private void OnPlayAgainBtnPressed()
     {
-        //GetTree().ChangeSceneToPacked(FirstLevel);
+        GlobalSceneManager.Instance?.SwitchToFirstLevel();
     }
 
     private void OnQuitBtnPressed()

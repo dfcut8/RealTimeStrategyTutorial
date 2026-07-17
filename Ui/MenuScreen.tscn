@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c045bulx8bv04" path="res://Ui/MenuScreen.cs" id="1_huyiu"]
 [ext_resource type="Texture2D" uid="uid://3f7betg52c7g" path="res://Assets/Textures/Backgrounds/menu_background.png" id="1_yxb4i"]
-[ext_resource type="PackedScene" uid="uid://dspjrv2iwutyv" path="res://Core/Main.tscn" id="2_jcg3q"]
 
 [node name="MenuScreen" type="Control" unique_id=1895821940]
 layout_mode = 3
@@ -16,7 +15,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_huyiu")
-FirstLevel = ExtResource("2_jcg3q")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=118433102]
 layout_mode = 1

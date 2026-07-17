@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crga5nbdp7xj"]
+
+[ext_resource type="Script" uid="uid://dvdm7gwiodn32" path="res://Core/GlobalSceneManager.cs" id="1_737kl"]
+[ext_resource type="PackedScene" uid="uid://dspjrv2iwutyv" path="res://Core/Main.tscn" id="2_dfjvo"]
+[ext_resource type="PackedScene" uid="uid://5u0tjfo2konc" path="res://Ui/MenuScreen.tscn" id="3_wjwwf"]
+
+[node name="GlobalSceneManager" type="Node" unique_id=2070149618]
+script = ExtResource("1_737kl")
+FirstLevel = ExtResource("2_dfjvo")
+MainMenuScreen = ExtResource("3_wjwwf")
+TestString = "knjknfdf"

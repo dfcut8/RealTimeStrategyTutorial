@@ -4,11 +4,8 @@ namespace RealTimeStrategyTutorial.Ui;
 
 public partial class EndScreen : CanvasLayer
 {
-    [Export]
-    public required PackedScene MenuScreen { get; set; }
-
     private Label? teamLabel;
-    private Button mainMenuBtn;
+    private Button? mainMenuBtn;
 
     public override void _Ready()
     {
@@ -29,6 +26,6 @@ public partial class EndScreen : CanvasLayer
 
     private void LoadMenu()
     {
-        GetTree().ChangeSceneToPacked(MenuScreen);
+        GlobalSceneManager.Instance?.SwitchToMainMenuScreen();
     }
 }
