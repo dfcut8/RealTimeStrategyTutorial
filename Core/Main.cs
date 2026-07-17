@@ -34,26 +34,15 @@ public partial class Main : Node2D
     {
         GD.Print($"Checking if we have a winner: {string.Join(", ", units)}.");
 
-        //var teamsAlive = 0;
-        //foreach (var team in units)
-        //{
-        //    if (team.Value > 0)
-        //    {
-        //        teamsAlive++;
-        //    }
-        //}
-        //if (teamsAlive > 0)
-        //{
-        //    GD.Print("Still playing");
-        //}
-        if (units.Count(x => x.Value > 0) > 1)
+        var teamsAlive = units.Where(x => x.Value > 0).ToList();
+
+        if (teamsAlive.Count > 1)
         {
             GD.Print("Still playing");
         }
-        else
+        else if (teamsAlive.Count == 1)
         {
-            var winner = units.FirstOrDefault(x => x.Value > 0).Key;
-            GD.Print($"Winner: {winner}.");
+            GD.Print($"Winner: {teamsAlive[0].Key}.");
         }
     }
 }
