@@ -2,11 +2,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using RealTimeStrategyTutorial.Core.Units;
+using RealTimeStrategyTutorial.Ui;
 
 namespace RealTimeStrategyTutorial.Core;
 
 public partial class Main : Node2D
 {
+    [Export]
+    public required EndScreen EndScreen { get; set; }
+
     private Dictionary<Unit.TeamEnum, int> units = [];
 
     public override void _Ready()
@@ -43,6 +47,7 @@ public partial class Main : Node2D
         else if (teamsAlive.Count == 1)
         {
             GD.Print($"Winner: {teamsAlive[0].Key}.");
+            EndScreen.Update(teamsAlive[0].Key.ToString());
         }
     }
 }

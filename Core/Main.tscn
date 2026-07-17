@@ -6,18 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://cda7hbrgyd8yv" path="res://Core/Camera2d.tscn" id="3_fxul2"]
 [ext_resource type="PackedScene" uid="uid://dg04mjv12q6ng" path="res://Core/Units/UnitPlayer.tscn" id="4_jhd3m"]
 [ext_resource type="PackedScene" uid="uid://buorrrt02u1qw" path="res://Core/Units/UnitAi.tscn" id="5_mmo8m"]
+[ext_resource type="PackedScene" uid="uid://c0voctv5y7nii" path="res://Ui/EndScreen.tscn" id="7_fauey"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87wjg"]
 vertices = PackedVector2Array(73, 58, -72, -3, 73, -4, 120, -4, 120, 58, 120, 118, 293.96094, 152.97656, -293.96094, 152.00781, 73, 118, -74, 118, -121, 118, 120, -69, 293.03125, -130.97656, -293.03125, -130.00781, 73, -69, -121, 58, -72, -68, -119, -68, -119, -3, -74, 58)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 9, 7), PackedInt32Array(3, 11, 12, 6), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 7, 13, 15), PackedInt32Array(2, 1, 16, 14), PackedInt32Array(13, 14, 16, 17), PackedInt32Array(15, 13, 17, 18), PackedInt32Array(19, 15, 18, 1), PackedInt32Array(0, 8, 9, 19, 1), PackedInt32Array(4, 3, 6), PackedInt32Array(4, 6, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-303, -140, 303, -141, 304, 163, -304, 162)])
 
-[node name="Main" type="Node2D" unique_id=1341206797]
+[node name="Main" type="Node2D" unique_id=1341206797 node_paths=PackedStringArray("EndScreen")]
 script = ExtResource("1_mlbys")
+EndScreen = NodePath("EndScreen")
 
 [node name="Controllers" type="Node" parent="." unique_id=415576359]
 
 [node name="UnitController" parent="Controllers" unique_id=1100159285 instance=ExtResource("2_jhd3m")]
+
+[node name="EndScreen" parent="." unique_id=379009865 instance=ExtResource("7_fauey")]
+visible = false
 
 [node name="Camera2D" parent="." unique_id=118322586 instance=ExtResource("3_fxul2")]
 
